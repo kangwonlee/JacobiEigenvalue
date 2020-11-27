@@ -128,7 +128,7 @@ def jacobi_method(mat_a, epsilon=1e-9, b_verbose=False, b_plot=False):
                 np.array(mat_a0), np.array(mat_x)
               ))
             )
-            plt.title(f"iteration{counter:03d} r={r} s={s}")
+            plt.title(f"iteration{counter:03d} r={r} s={s} abs(a[{r}][{s}])={abs_ars:g}")
             plt.savefig(f"iteration{counter:03d}.png")
 
 
