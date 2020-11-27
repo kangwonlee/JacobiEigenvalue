@@ -74,7 +74,7 @@ def iterate_power_method(mat_a, zk, n, lambda_k1):
     return lambda_k1, yk1
 
 
-def find_r_s(mat_a0, n):
+def search_max_off_diagonal(mat_a0, n):
     r = 0
     s = 1
     ars = mat_a0[r][s]
@@ -102,7 +102,7 @@ def jacobi_method(mat_a, epsilon=1e-9, b_verbose=False):
 
     #########################
     while True:
-        abs_ars, ars, r, s = find_r_s(mat_a0, n)
+        abs_ars, ars, r, s = search_max_off_diagonal(mat_a0, n)
 
         if abs_ars < epsilon:
             break
