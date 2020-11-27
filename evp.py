@@ -5,8 +5,10 @@ Eigenvalue Problem Module
 python 의 list 의 list 을 이용하는 행렬로 구현함
 Implement a matrix as a list of lists
 """
-
 import math
+
+import numpy as np
+import matplotlib.pyplot as plt
 
 import matrix
 
@@ -118,6 +120,14 @@ def jacobi_method(mat_a, epsilon=1e-9, b_verbose=False):
             matrix.show_mat(mat_a0)
             print("mat_x%03d" % counter)
             matrix.show_mat(mat_x)
+            plt.matshow(
+              np.hstack((
+                np.array(mat_a0), np.array(mat_x)
+              ))
+            )
+            plt.title(f"iteration{counter:03d}")
+            plt.savefig(f"iteration{counter:03d}.png")
+
 
     return mat_a0, mat_x
 
