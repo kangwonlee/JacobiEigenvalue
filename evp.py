@@ -6,6 +6,7 @@ python 의 list 의 list 을 이용하는 행렬로 구현함
 Implement a matrix as a list of lists
 """
 import math
+import os
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -168,6 +169,9 @@ def find_mat_r_terms(ars, b_verbose, mat_a0, r, s):
 
 
 def initialize_jacobi_method(mat_a):
+
+    remove_all_figure_files()
+
     n = len(mat_a)
     mat_a0 = matrix.alloc_mat(n, n)
     for i in range(n):
@@ -176,3 +180,9 @@ def initialize_jacobi_method(mat_a):
     mat_x = matrix.get_identity_matrix(n)
     counter = 0
     return mat_a0, mat_x, n, counter
+
+
+def remove_all_figure_files(ext:str='png'):
+  for filename in os.listdir():
+    if os.path.splitext(filename)[-1].lower().endswith(ext.lower()):
+      os.remove(filename)
