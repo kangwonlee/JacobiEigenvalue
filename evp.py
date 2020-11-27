@@ -134,6 +134,27 @@ def matshow(counter, abs_ars, r, s, mat_a0, mat_x):
       np.array(mat_a0), np.array(mat_x)
     ))
   )
+
+  if 3 > len(mat_a0):
+
+    plt.subplot(2, 2, 1)
+    plt.matshow(np.array(mat_a0))
+
+    plt.subplot(2, 2, 2)
+    plt.matshow(np.array(mat_x))
+
+    plt.subplot(2, 2, 3)
+    plt.plot((0, mat_a0[0][0]), (0, mat_a0[0][1]),)
+    plt.plot((0, mat_a0[1][0]), (0, mat_a0[1][1]),)
+    plt.axis('equal')
+    plt.grid(True)
+
+    plt.subplot(2, 2, 4)
+    plt.plot((0, mat_x[0][0]), (0, mat_x[0][1]),)
+    plt.plot((0, mat_x[1][0]), (0, mat_x[1][1]),)
+    plt.axis('equal')
+    plt.grid(True)
+
   plt.title(f"iteration{counter:03d} r={r} s={s} abs(a[{r}][{s}])={abs_ars:g}")
   plt.savefig(f"iteration{counter:03d}.png")
 

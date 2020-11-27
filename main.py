@@ -1,6 +1,19 @@
 import evp
 
 
+def main22():
+
+  matA = [
+    [4, 1],
+    [1, 4],
+  ]
+
+  result = evp.jacobi_method(matA, b_verbose=True, b_plot=True)
+  print(result)
+
+  input('=== Press Enter to continue ===')
+
+
 def main33():
 
   matA = [
@@ -42,4 +55,5 @@ def main77():
 
 
 if "__main__" == __name__:
+  main22()
   main77()
