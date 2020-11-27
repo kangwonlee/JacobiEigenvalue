@@ -26,6 +26,8 @@ def main33():
 
   print(result)
 
+  input('=== Press Enter to continue ===')
+
 
 def main44():
 
@@ -40,6 +42,8 @@ def main44():
 
   print(result)
 
+  input('=== Press Enter to continue ===')
+
 
 def main77():
   import numpy.random as nr
@@ -52,6 +56,8 @@ def main77():
   result = evp.jacobi_method(matA.tolist(), b_plot=True)
 
   print(result)
+
+  input('=== Press Enter to continue ===')
 
 
 if "__main__" == __name__:
