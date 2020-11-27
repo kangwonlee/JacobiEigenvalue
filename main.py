@@ -28,5 +28,18 @@ def main44():
   print(result)
 
 
+def main77():
+  import numpy.random as nr
+
+  nr.seed()
+
+  matA = nr.random((7,7))
+  matA = matA @ matA.T
+
+  result = evp.jacobi_method(matA.tolist(), b_verbose=True)
+
+  print(result)
+
+
 if "__main__" == __name__:
-  main44()
+  main77()
