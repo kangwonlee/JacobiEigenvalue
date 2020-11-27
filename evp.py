@@ -128,6 +128,10 @@ def jacobi_method(mat_a, epsilon=1e-9, b_verbose=False, b_plot=False):
     return mat_a0, mat_x
 
 
+def get_title(counter, abs_ars, r, s) -> str:
+  return f"iteration{counter:03d} r={r} s={s} abs(a[{r}][{s}])={abs_ars:g}"
+
+
 def matshow(counter, abs_ars, r, s, mat_a0, mat_x):
 
   if 3 > len(mat_a0):
@@ -138,7 +142,7 @@ def matshow(counter, abs_ars, r, s, mat_a0, mat_x):
         np.array(mat_a0), np.array(mat_x)
       ))
     )
-    plt.title(f"iteration{counter:03d} r={r} s={s} abs(a[{r}][{s}])={abs_ars:g}")
+    plt.title(get_title(counter, abs_ars, r, s))
 
   plt.savefig(f"iteration{counter:03d}.png")
 
@@ -146,7 +150,7 @@ def matshow(counter, abs_ars, r, s, mat_a0, mat_x):
 def matshow22(counter, abs_ars, r, s, mat_a0, mat_x):
   fig, axes = plt.subplots(2, 2)
 
-  fig.suptitle(f"iteration{counter:03d} r={r} s={s} abs(a[{r}][{s}])={abs_ars:g}")
+  fig.suptitle(get_title(counter, abs_ars, r, s))
   axes[0][0].matshow(np.array(mat_a0))
 
   axes[0][1].matshow(np.array(mat_x))
