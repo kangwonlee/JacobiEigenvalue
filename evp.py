@@ -123,16 +123,19 @@ def jacobi_method(mat_a, epsilon=1e-9, b_verbose=False, b_plot=False):
             matrix.show_mat(mat_x)
 
         if b_plot:
-            plt.matshow(
-              np.hstack((
-                np.array(mat_a0), np.array(mat_x)
-              ))
-            )
-            plt.title(f"iteration{counter:03d} r={r} s={s} abs(a[{r}][{s}])={abs_ars:g}")
-            plt.savefig(f"iteration{counter:03d}.png")
-
+            matshow(counter, abs_ars, r, s, mat_a0, mat_x)
 
     return mat_a0, mat_x
+
+
+def matshow(counter, abs_ars, r, s, mat_a0, mat_x):
+  plt.matshow(
+    np.hstack((
+      np.array(mat_a0), np.array(mat_x)
+    ))
+  )
+  plt.title(f"iteration{counter:03d} r={r} s={s} abs(a[{r}][{s}])={abs_ars:g}")
+  plt.savefig(f"iteration{counter:03d}.png")
 
 
 def jacobi_rotation(ars, arr, ass, cos, sin, mat_a0, mat_x, n, r, s):
