@@ -97,7 +97,7 @@ def calc_theta(ars, arr, ass):
     return theta_rad
 
 
-def jacobi_method(mat_a, epsilon=1e-9, b_verbose=False):
+def jacobi_method(mat_a, epsilon=1e-9, b_verbose=False, b_plot=False):
     mat_a0, mat_x, n, counter = initialize_jacobi_method(mat_a)
 
     #########################
@@ -121,12 +121,14 @@ def jacobi_method(mat_a, epsilon=1e-9, b_verbose=False):
             matrix.show_mat(mat_a0)
             print("mat_x%03d" % counter)
             matrix.show_mat(mat_x)
+
+        if b_plot:
             plt.matshow(
               np.hstack((
                 np.array(mat_a0), np.array(mat_x)
               ))
             )
-            plt.title(f"iteration{counter:03d}")
+            plt.title(f"iteration{counter:03d} r={r} s={s}")
             plt.savefig(f"iteration{counter:03d}.png")
 
 

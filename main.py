@@ -9,7 +9,7 @@ def main33():
     [1, 2, 4],
   ]
 
-  result = evp.jacobi_method(matA, b_verbose=True)
+  result = evp.jacobi_method(matA, b_verbose=True, b_plot=True)
 
   print(result)
 
@@ -23,7 +23,7 @@ def main44():
     [1, 2, 4, 8],
   ]
 
-  result = evp.jacobi_method(matA, b_verbose=True)
+  result = evp.jacobi_method(matA, b_verbose=True, b_plot=True)
 
   print(result)
 
@@ -36,7 +36,7 @@ def main77():
   matA = nr.random((7,7))
   matA = matA @ matA.T
 
-  result = evp.jacobi_method(matA.tolist(), b_verbose=True)
+  result = evp.jacobi_method(matA.tolist(), b_plot=True)
 
   print(result)
 
