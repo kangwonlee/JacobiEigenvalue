@@ -129,33 +129,37 @@ def jacobi_method(mat_a, epsilon=1e-9, b_verbose=False, b_plot=False):
 
 
 def matshow(counter, abs_ars, r, s, mat_a0, mat_x):
-  plt.matshow(
-    np.hstack((
-      np.array(mat_a0), np.array(mat_x)
-    ))
-  )
 
   if 3 > len(mat_a0):
-
-    fig, axes = plt.subplots(2, 2)
-
-    fig.suptitle(f"iteration{counter:03d} r={r} s={s} abs(a[{r}][{s}])={abs_ars:g}")
-    axes[0][0].matshow(np.array(mat_a0))
-
-    axes[0][1].matshow(np.array(mat_x))
-
-    axes[1][0].plot((0, mat_a0[0][0]), (0, mat_a0[0][1]),)
-    axes[1][0].plot((0, mat_a0[1][0]), (0, mat_a0[1][1]),)
-    axes[1][0].axis('equal')
-    axes[1][0].grid(True)
-
-    axes[1][1].plot((0, mat_x[0][0]), (0, mat_x[0][1]),)
-    axes[1][1].plot((0, mat_x[1][0]), (0, mat_x[1][1]),)
-    axes[1][1].axis('equal')
-    axes[1][1].grid(True)
+    matshow22(counter, abs_ars, r, s, mat_a0, mat_x)
   else:
+    plt.matshow(
+      np.hstack((
+        np.array(mat_a0), np.array(mat_x)
+      ))
+    )
     plt.title(f"iteration{counter:03d} r={r} s={s} abs(a[{r}][{s}])={abs_ars:g}")
+
   plt.savefig(f"iteration{counter:03d}.png")
+
+
+def matshow22(counter, abs_ars, r, s, mat_a0, mat_x):
+  fig, axes = plt.subplots(2, 2)
+
+  fig.suptitle(f"iteration{counter:03d} r={r} s={s} abs(a[{r}][{s}])={abs_ars:g}")
+  axes[0][0].matshow(np.array(mat_a0))
+
+  axes[0][1].matshow(np.array(mat_x))
+
+  axes[1][0].plot((0, mat_a0[0][0]), (0, mat_a0[0][1]),)
+  axes[1][0].plot((0, mat_a0[1][0]), (0, mat_a0[1][1]),)
+  axes[1][0].axis('equal')
+  axes[1][0].grid(True)
+
+  axes[1][1].plot((0, mat_x[0][0]), (0, mat_x[0][1]),)
+  axes[1][1].plot((0, mat_x[1][0]), (0, mat_x[1][1]),)
+  axes[1][1].axis('equal')
+  axes[1][1].grid(True)
 
 
 def jacobi_rotation(ars, arr, ass, cos, sin, mat_a0, mat_x, n, r, s):
