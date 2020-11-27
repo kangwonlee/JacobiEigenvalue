@@ -112,7 +112,7 @@ def jacobi_method(mat_a, epsilon=1e-9, b_verbose=False):
 
         arr, ass, cos, sin = find_mat_r_terms(ars, b_verbose, mat_a0, r, s)
 
-        iterate_jacobi_method(ars, arr, ass, cos, sin, mat_a0, mat_x, n, r, s)
+        jacobi_rotation(ars, arr, ass, cos, sin, mat_a0, mat_x, n, r, s)
 
         counter += 1
 
@@ -133,7 +133,7 @@ def jacobi_method(mat_a, epsilon=1e-9, b_verbose=False):
     return mat_a0, mat_x
 
 
-def iterate_jacobi_method(ars, arr, ass, cos, sin, mat_a0, mat_x, n, r, s):
+def jacobi_rotation(ars, arr, ass, cos, sin, mat_a0, mat_x, n, r, s):
     for k in range(n):
         if k == r:
             pass
