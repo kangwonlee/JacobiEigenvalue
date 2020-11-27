@@ -100,6 +100,10 @@ def calc_theta(ars, arr, ass):
 def jacobi_method(mat_a, epsilon=1e-9, b_verbose=False, b_plot=False):
     mat_a0, mat_x, n, counter = initialize_jacobi_method(mat_a)
 
+    if b_plot:
+      abs_ars, ars, r, s = search_max_off_diagonal(mat_a0, n)
+      matshow(counter, abs_ars, r, s, mat_a0, mat_x)
+
     #########################
     while True:
         abs_ars, ars, r, s = search_max_off_diagonal(mat_a0, n)
