@@ -110,7 +110,7 @@ def jacobi_method(mat_a, epsilon=1e-9, b_verbose=False):
             print("ars = %s" % ars)
             print("r, s = (%g, %g)" % (r, s))
 
-        arr, ass, cos, sin = find_mat_r_terms(ars, b_verbose, mat_a0, r, s)
+        arr, ass, cos, sin = get_givens_rotation_elements(ars, b_verbose, mat_a0, r, s)
 
         jacobi_rotation(ars, arr, ass, cos, sin, mat_a0, mat_x, n, r, s)
 
@@ -157,7 +157,7 @@ def jacobi_rotation(ars, arr, ass, cos, sin, mat_a0, mat_x, n, r, s):
     mat_a0[r][s] = mat_a0[s][r] = 0.0
 
 
-def find_mat_r_terms(ars, b_verbose, mat_a0, r, s):
+def get_givens_rotation_elements(ars, b_verbose, mat_a0, r, s):
     arr = mat_a0[r][r]
     ass = mat_a0[s][s]
     theta_rad = calc_theta(ars, arr, ass)
